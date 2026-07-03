@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>菊島盛夏之桃園情支2026澎湖四日遊互動電子旅遊書</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Noto Sans TC -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: rgba(0, 0, 0, 0.05);
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background-color: rgba(14, 116, 144, 0.3);
+      border-radius: 20px;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col antialiased">
+
+  <!-- TOP HEADER (Always Visible) -->
+  <header class="bg-gradient-to-r from-cyan-600 via-blue-600 to-indigo-700 text-white shadow-md sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <!-- Anchor Icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-cyan-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+        </svg>
+        <div>
+          <h1 class="text-base sm:text-lg font-bold tracking-wider">菊島盛夏之桃園情支跳島·探險手冊</h1>
+          <p class="text-[10px] sm:text-xs text-cyan-100 hidden sm:block">Penghu Island Adventure Guide 2026</p>
+        </div>
+      </div>
+      <!-- Countdown Badge -->
+      <div id="countdown-container" class="bg-white/10 backdrop-blur-md px-3 py-1 rounded-full border border-white/20 text-xs sm:text-sm font-medium">
+        ⏳ 距離出發還有: <span id="countdown-days" class="font-bold text-yellow-300">--</span> 天
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-6xl mx-auto w-full px-4 py-6 flex-grow grid grid-cols-1 lg:grid-cols-12 gap-6 pb-24 lg:pb-8">
+    
+    <!-- LEFT NAVIGATION SIDEBAR (Desktop only) -->
+    <aside class="hidden lg:block lg:col-span-3 bg-white p-6 rounded-2xl shadow-sm border border-slate-100 h-fit sticky top-20">
+      <div class="flex flex-col items-center text-center pb-6 border-b border-slate-100">
+        <div class="w-20 h-20 bg-cyan-100 rounded-full flex items-center justify-center mb-3 shadow-inner">
+          <span class="text-4xl">🏝️</span>
+        </div>
+        <h2 class="text-base font-bold text-slate-800 leading-snug">桃園情支・澎湖四日行</h2>
+        <p class="text-xs text-slate-400 mt-1">2026.07.15 - 07.18 (四天三夜)</p>
+      </div>
+
+      <!-- Nav Links -->
+      <nav class="mt-6 space-y-2">
+        <button onclick="switchTab('tab-cover')" id="btn-tab-cover" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition duration-200 bg-cyan-50 text-cyan-700 font-medium">
+          <span class="text-lg">📖</span>
+          <span>旅遊書封面</span>
+        </button>
+        <button onclick="switchTab('tab-itinerary')" id="btn-tab-itinerary" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition duration-200 text-slate-600 hover:bg-slate-50 hover:text-slate-800">
+          <span class="text-lg">🗺️</span>
+          <span>每日詳細行程</span>
+        </button>
+        <button onclick="switchTab('tab-tide')" id="btn-tab-tide" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition duration-200 text-slate-600 hover:bg-slate-50 hover:text-slate-800">
+          <span class="text-lg">🌊</span>
+          <span>潮汐觀測助手</span>
+        </button>
+        <button onclick="switchTab('tab-checklist')" id="btn-tab-checklist" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition duration-200 text-slate-600 hover:bg-slate-50 hover:text-slate-800">
+          <span class="text-lg">🎒</span>
+          <span>行李檢查清單</span>
+        </button>
+        <button onclick="switchTab('tab-budget')" id="btn-tab-budget" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition duration-200 text-slate-600 hover:bg-slate-50 hover:text-slate-800">
+          <span class="text-lg">💰</span>
+          <span>預算與記帳本</span>
+        </button>
+        <button onclick="switchTab('tab-notes')" id="btn-tab-notes" class="nav-btn w-full flex items-center space-x-3 px-4 py-3 rounded-xl transition duration-200 text-slate-600 hover:bg-slate-50 hover:text-slate-800">
+          <span class="text-lg">✍️</span>
+          <span>旅行隨手筆記</span>
+        </button>
+      </nav>
+    </aside>
+
+    <!-- RIGHT MAIN CONTENT AREA -->
+    <section class="col-span-1 lg:col-span-9 flex flex-col space-y-6">
+      
+      <!-- 1. COVER PAGE TAB -->
+      <div id="tab-cover" class="tab-content block">
+        <div class="relative rounded-3xl overflow-hidden shadow-lg bg-gradient-to-br from-cyan-400 via-blue-500 to-indigo-600 text-white min-h-[420px] flex flex-col justify-between p-8 sm:p-12">
+          <!-- Decorative Background Elements -->
+          <div class="absolute right-0 top-0 opacity-10 translate-x-12 -translate-y-12">
+            <svg width="400" height="400" fill="none" viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="40" stroke="white" stroke-width="2" stroke-dasharray="5,5"/>
+            </svg>
+          </div>
+          
+          <div>
+            <span class="bg-white/20 backdrop-blur-md px-3 py-1.5 rounded-full text-xs font-semibold tracking-wider uppercase border border-white/10">
+              ☀️ 2026 Summer Special
+            </span>
+            <h1 class="text-3xl sm:text-5xl font-black tracking-tight mt-6 leading-tight">
+              桃園情支・盛夏澎湖
+              <span class="block text-2xl sm:text-3xl font-medium text-cyan-200 mt-2">浪漫蒔里、二崁古厝、摩西分海與東海探險</span>
+            </h1>
+          </div>
+
+          <div class="border-t border-white/20 pt-8 mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-3">
+              <p class="text-xs text-cyan-100">旅行日期</p>
+              <p class="text-sm sm:text-base font-bold mt-0.5">7/15 - 7/18</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-3">
+              <p class="text-xs text-cyan-100">行程天數</p>
+              <p class="text-sm sm:text-base font-bold mt-0.5">4 天 3 夜</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-3">
+              <p class="text-xs text-cyan-100">核心體驗</p>
+              <p class="text-sm sm:text-base font-bold mt-0.5">東海一日遊・藍洞巡航</p>
+            </div>
+            <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-3">
+              <p class="text-xs text-cyan-100">花火之夜</p>
+              <p class="text-sm sm:text-base font-bold mt-0.5">觀音亭(週四施放)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Quick Summary & Travel Rules -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+          <div class="bg-emerald-50 border border-emerald-100 rounded-2xl p-6">
+            <h3 class="font-bold text-emerald-800 flex items-center gap-2">
+              <span>👒</span> 行前核心準備
+            </h3>
+            <ul class="text-sm text-emerald-700 mt-3 space-y-2.5">
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-500">✔</span>
+                <span><strong>重中之重：</strong> 7月中旬陽光極其炙熱，蒔里海灘、夢幻海灘防曬要做好，強烈推薦海洋友善防曬乳。</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-500">✔</span>
+                <span><strong>必備證件：</strong> 身分證（登機/登船必需）、駕照（租車必需，汽機車皆備尤佳）。</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-emerald-500">✔</span>
+                <span><strong>暈船藥物：</strong> 第四天東海一日遊航程（岐頭碼頭出發）建議提前半小時服用暈船藥。</span>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-amber-50 border border-amber-100 rounded-2xl p-6">
+            <h3 class="font-bold text-amber-800 flex items-center gap-2">
+              <span>📅</span> 2026 花火節聯名快訊
+            </h3>
+            <p class="text-sm text-amber-800 mt-2 leading-relaxed">
+              <strong>聯名主題：</strong> 《七龍珠 Z》傳奇聯名！<br>
+              <strong>施放時間：</strong> 7/16 (週四) 晚上 21:00 正式施放無人機與高空煙火秀。<br>
+              <strong>行程卡位：</strong> 剛好安排在 Day 2 的晚上！看完北環經典風景後，直接回市區觀音亭卡位。
+            </p>
+            <div class="mt-4 flex gap-2">
+              <span class="bg-amber-100 text-amber-900 text-xs px-2.5 py-1 rounded-md font-semibold">週四施放</span>
+              <span class="bg-amber-100 text-amber-900 text-xs px-2.5 py-1 rounded-md font-semibold">七龍珠Z聯名</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. DAILY ITINERARY TAB -->
+      <div id="tab-itinerary" class="tab-content hidden">
+        <!-- Daily Tabs (Internal Navigation) -->
+        <div class="flex border-b border-slate-200 mb-6 overflow-x-auto space-x-1 sm:space-x-2 pb-1">
+          <button onclick="switchDay(1)" id="btn-day-1" class="day-tab-btn flex-1 py-3 px-2 text-center border-b-2 border-cyan-600 text-cyan-600 font-bold text-sm sm:text-base whitespace-nowrap">
+            Day 1 (7/15)
+          </button>
+          <button onclick="switchDay(2)" id="btn-day-2" class="day-tab-btn flex-1 py-3 px-2 text-center border-b-2 border-transparent text-slate-500 hover:text-slate-800 font-semibold text-sm sm:text-base whitespace-nowrap">
+            Day 2 (7/16)
+          </button>
+          <button onclick="switchDay(3)" id="btn-day-3" class="day-tab-btn flex-1 py-3 px-2 text-center border-b-2 border-transparent text-slate-500 hover:text-slate-800 font-semibold text-sm sm:text-base whitespace-nowrap">
+            Day 4 (7/17) <!-- Note: Keeping programmatic Day IDs consistent, mapping to Day 3 -->
+            Day 3 (7/17)
+          </button>
+          <button onclick="switchDay(4)" id="btn-day-4" class="day-tab-btn flex-1 py-3 px-2 text-center border-b-2 border-transparent text-slate-500 hover:text-slate-800 font-semibold text-sm sm:text-base whitespace-nowrap">
+            Day 4 (7/18)
+          </button>
+        </div>
+
+        <!-- DAY 1 CONTENT -->
+        <div id="day-1-content" class="day-content block space-y-6">
+          <div class="bg-gradient-to-r from-teal-500 to-cyan-500 text-white rounded-2xl p-6 shadow-sm">
+            <h2 class="text-xl font-bold flex items-center gap-2">
+              <span>Day 1</span> 抵達菊島 ➜ 南環悠閒海景線
+            </h2>
+            <p class="text-sm text-teal-50/90 mt-1">首日重點：入住放行李，午後漫步南環金黃沙灘，看風櫃聽濤絕景。</p>
+          </div>
+
+          <!-- Timeline Items -->
+          <div class="space-y-4 relative before:absolute before:inset-0 before:left-4 before:xs:left-6 before:w-0.5 before:bg-slate-200">
+            
+            <!-- Item 1 -->
+            <div class="relative flex items-start pl-8 sm:pl-12 group">
+              <div class="absolute left-2.5 sm:left-4 w-3.5 h-3.5 bg-cyan-600 border-4 border-white rounded-full ring-4 ring-cyan-100 z-10 transition group-hover:scale-125"></div>
+              <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100 flex-grow hover:shadow-md transition">
+                <div class="flex justify-between items-center flex-wrap gap-2">
+                  <span class="bg-cyan-50 text-cyan-700 text-xs px-2 py-0.5 rounded font-bold">上午</span>
+                  <span class="text-xs text-slate-400 font-medium">抵達澎湖</span>
+                </div>
+                <h3 class="font-bold text-slate-800 text-base mt-2 flex items-center gap-2">
+                  <span>📍</span> 抵達澎湖、旅宿 Check-in
+                </h3>
+                <p class="text-sm text-slate-500 mt-1.5 leading-relaxed">
+                  搭乘飛機或客輪抵達馬公港/機場。前往租車行牽車後，直接前往飯店或民宿辦理 Check-in 放置行李，輕裝出發。
+                </p>
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="relative flex items-start pl-8 sm:pl-12 group">
+              <div class="absolute left-2.5 sm:left-4 w-3.5 h-3.5 bg-cyan-600 border-4 border-white rounded-full ring-4 ring-cyan-100 z-10 transition group-hover:scale-125"></div>
+              <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100 flex-grow hover:shadow-md transition">
+                <div class="flex justify-between items-center flex-wrap gap-2">
+                  <span class="bg-amber-50 text-amber-700 text-xs px-2 py-0.5 rounded font-bold">中午</span>
+                  <span class="text-xs text-slate-400 font-medium">在地午餐</span>
+                </div>
+                <h3 class="font-bold text-slate-800 text-base mt-2">馬公市區小吃美食</h3>
+                <p class="text-sm text-slate-500 mt-1.5 leading-relaxed">
+                  前往熱鬧的 <strong>文康商圈</strong> 或品嚐知名的 <strong>讚哥燒肉飯</strong>、馬路益燒肉飯。在炙熱的中午大啖鹹甜美味的燒肉飯與排骨飯，為下午儲備體力。
+                </p>
+              </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="relative flex items-start pl-8 sm:pl-12 group">
+              <div class="absolute left-2.5 sm:left-4 w-3.5 h-3.5 bg-cyan-600 border-4 border-white rounded-full ring-4 ring-cyan-100 z-10 transition group-hover:scale-125"></div>
+              <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100 flex-grow hover:shadow-md transition">
+                <div class="flex justify-between items-center flex-wrap gap-2">
+                  <span class="bg-cyan-50 text-cyan-700 text-xs px-2 py-0.5 rounded font-bold">下午</span>
+                  <span class="text-xs text-slate-400 font-medium">南環海景線</span>
+                </div>
+                <h3 class="font-bold text-slate-800 text-base mt-2">蒔里沙灘踏浪 ➜ 風櫃聽濤</h3>
+                <p class="text-sm text-slate-500 mt-1.5 leading-relaxed">
+                  <strong>蒔里沙灘：</strong> 澎湖老字號的優美海水浴場，珊瑚與貝殼遺骸構成的細緻白沙，非常適合踩沙浪。<br>
+                  <strong>風櫃洞：</strong> 欣賞海水灌入海蝕洞激起濤天巨浪並發出轟鳴的天然奇景。純白色的圓形幽浮涼亭是必拍的網美地標。
+                </p>
+              </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="relative flex items-start pl-8 sm:pl-12 group">
+              <div class="absolute left-2.5 sm:left-4 w-3.5 h-3.5 bg-cyan-600 border-4 border-white rounded-full ring-4 ring-cyan-100 z-10 transition group-hover:scale-125"></div>
+              <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100 flex-grow hover:shadow-md transition">
+                <div class="flex justify-between items-center flex-wrap gap-2">
+                  <span class="bg-amber-50 text-amber-700 text-xs px-2 py-0.5 rounded font-bold">晚餐</span>
+                  <span class="text-xs text-slate-400 font-medium">道地風味</span>
+                </div>
+                <h3 class="font-bold text-slate-800 text-base mt-2">花菜乾人文懷舊餐館 或 甲二嘴麵食館</h3>
+                <p class="text-sm text-slate-500 mt-1.5 leading-relaxed">
+                  <strong>花菜乾古厝風味餐：</strong> 充滿閩南懷舊風情，必點石鮔排骨湯、高麗菜酸炒肉絲，体验澎湖传统家常料理。<br>
+                  <strong>甲二嘴麵食館：</strong> 馬公市區平價又道地的經典麵食，豬肉乾麵、水餃與滷菜廣受在地人推薦。
+                </p>
+              </div>
+            </div>
+
+            <!-- Item 5 -->
+            <div class="relative flex items-start pl-8 sm:pl-12 group">
+              <div class="absolute left-2.5 sm:left-4 w-3.5 h-3.5 bg-indigo-600 border-4 border-white rounded-full ring-4 ring-indigo-100 z-10 transition group-hover:scale-125"></div>
+              <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100 flex-grow hover:shadow-md transition">
+                <div class="flex justify-between items-center flex-wrap gap-2">
+                  <span class="bg-indigo-50 text-indigo-700 text-xs px-2 py-0.5 rounded font-bold">住宿</span>
+                  <span class="text-xs text-slate-400 font-medium">溫馨旅宿</span>
+                </div>
+                <h3 class="font-bold text-slate-800 text-base mt-2 flex items-center gap-2">
+                  <span>🏡</span> 入住：東衛百勝民宿
+                </h3>
+                <p class="text-sm text-slate-500 mt-1.5 leading-relaxed">
+                  結束充實的第一天，前往位於東衛的 <strong>百勝民宿</strong> 辦理入住手續並休息。<br>
+                  <a href="https://maps.app.goo.gl/T5uTmRDVu6MxbCSB8" target="_blank" class="inline-flex items-center gap-1 mt-2 text-cyan-600 hover:text-cyan-800 font-medium">
+                    <span class="text-base">📍</span> Google Maps 導航
+                  </a>
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- DAY 2 CONTENT -->
+        <div id="day-2-content" class="day-content hidden space-y-6">
+          <div class="bg-gradient-to-r from-blue-500 to-indigo-500 text-white rounded-2xl p-6 shadow-sm">
+            <h2 class="text-xl font-bold flex items-center gap-2">
+              <span>Day 2</span> 北環地質與人文 ➜ 2026 花火節盛典
+            </h2>
+            <p class="text-sm text-blue-50/90 mt-1">本日重點：白沙西嶼北環風景、二崁杏仁茶、玄武岩，晚上觀音亭煙火施放！</p>
+          </div>
+
+          <div class="space-y-4 relative before:absolute before:inset-0 before:left-4 before:xs:left-6 before:w-0.5 before:bg-slate-200">
+            
+            <!-- Item 1 -->
+            <div class="relative flex items-start pl-8 sm:pl-12 group">
+              <div class="absolute left-2.5 sm:left-4 w-3.5 h-3.5 bg-indigo-600 border-4 border-white rounded-full ring-4 ring-indigo-100 z-10 transition group-hover:scale-125"></div>
+              <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100 flex-grow hover:shadow-md transition">
+                <div class="flex justify-between items-center flex-wrap gap-2">
+                  <span class="bg-indigo-50 text-indigo-700 text-xs px-2 py-0.5 rounded font-bold">上午</span>
+                  <span class="text-xs text-slate-400 font-medium">北環啟航</span>
+                </div>
+                <h3 class="font-bold text-slate-800 text-base mt-2">通樑古榕 ➜ 澎湖跨海大橋</h3>
+                <p class="text-sm text-slate-500 mt-1.5 leading-relaxed">
+                  <strong>通樑古榕：</strong> 拜訪擁有近400年歷史、氣根茂密交織的神木榕樹，順道品嚐清涼的 <strong>易家仙人掌冰</strong>！<br>
+                  <strong>跨海大橋：</strong> 澎湖最具代表性地標，紅白相間的宏偉拱門是合影留念的絕佳景點。
+                </p>
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="relative flex items-start pl-8 sm:pl-12 group">
+              <div class="absolute left-2.5 sm:left-4 w-3.5 h-3.5 bg-indigo-600 border-4 border-white rounded-full ring-4 ring-indigo-100 z-10 transition group-hover:scale-125"></div>
+              <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100 flex-grow hover:shadow-md transition">
+                <div class="flex justify-between items-center flex-wrap gap-2">
+                  <span class="bg-amber-50 text-amber-700 text-xs px-2 py-0.5 rounded font-bold">中午</span>
+                  <span class="text-xs text-slate-400 font-medium">西嶼美食</span>
+                </div>
+                <h3 class="font-bold text-slate-800 text-base mt-2">美東芳牛肉麵</h3>
+                <p class="text-sm text-slate-500 mt-1.5 leading-relaxed">
+                  西嶼必吃排隊名店！麵條 Q 彈、牛肉燉煮得軟嫩多汁。一定要點上一盤包含牛肚、豆干等配料豐富的 <strong>綜合滷味</strong>，搭配老闆娘獨門的特製辣椒，香氣十足！
+                </p>
+              </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="relative flex items-start pl-8 sm:pl-12 group">
+              <div class="absolute left-2.5 sm:left-4 w-3.5 h-3.5 bg-indigo-600 border-4 border-white rounded-full ring-4 ring-indigo-100 z-10 transition group-hover:scale-125"></div>
+              <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100 flex-grow hover:shadow-md transition">
+                <div class="flex justify-between items-center flex-wrap gap-2">
+                  <span class="bg-cyan-50 text-cyan-700 text-xs px-2 py-0.5 rounded font-bold">下午</span>
+                  <span class="text-xs text-slate-400 font-medium">人文與地質</span>
+                </div>
+                <h3 class="font-bold text-slate-800 text-base mt-2">二崁聚落保存區 ➜ 大菓葉柱狀玄武岩</h3>
+                <p class="text-sm text-slate-500 mt-1.5 leading-relaxed">
+                  <strong>二崁聚落：</strong> 漫步在古色古香的閩南咾咕石古厝間，買杯香濃的 <strong>二崁杏仁茶</strong>，或來一碗冰涼滑順的 <strong>二馬豆花</strong>。<br>
+                  <strong>大菓葉玄武岩：</strong> 欣賞極具震撼力的六角形柱狀玄武岩壁，是拍照、感受大自然地質奧妙的國際級地標。
+                </p>
+              </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="relative flex items-start pl-8 sm:pl-12 group">
+              <div class="absolute left-2.5 sm:left-4 w-3.5 h-3.5 bg-indigo-600 border-4 border-white rounded-full ring-4 ring-indigo-100 z-10 transition group-hover:scale-125"></div>
+              <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100 flex-grow hover:shadow-md transition">
+                <div class="flex justify-between items-center flex-wrap gap-2">
+                  <span class="bg-amber-50 text-amber-700 text-xs px-2 py-0.5 rounded font-bold">晚餐</span>
+                  <span class="text-xs text-slate-400 font-medium">自選晚餐</span>
+                </div>
+                <h3 class="font-bold text-slate-800 text-base mt-2">晚餐（待定）：安排精緻餐酒館或回馬公市區</h3>
+                <p class="text-sm text-slate-500 mt-1.5 leading-relaxed">
+                  可考慮預約馬公市區的特色餐酒館，或回到中正路市區，簡單享用海鮮熱炒，為晚上的花火秀暖身。
+                </p>
+              </div>
+            </div>
+
+            <!-- Item 2-5 -->
+            <div class="relative flex items-start pl-8 sm:pl-12 group">
+              <div class="absolute left-2.5 sm:left-4 w-3.5 h-3.5 bg-red-600 border-4 border-white rounded-full ring-4 ring-red-100 z-10 transition group-hover:scale-125"></div>
+              <div class="bg-white p-5 rounded-xl shadow-md border-2 border-red-100 flex-grow hover:shadow-lg transition">
+                <div class="flex justify-between items-center flex-wrap gap-2">
+                  <span class="bg-red-50 text-red-700 text-xs px-2 py-0.5 rounded font-bold">20:00 - 21:30</span>
+                  <span class="text-xs text-red-500 font-bold">🎇 花火節重頭戲 🎇</span>
+                </div>
+                <h3 class="font-bold text-slate-800 text-base mt-2 flex items-center gap-1.5">
+                  <span class="text-red-500">✨</span> 觀音亭花火之夜 (七龍珠Z無人機聯名秀)
+                </h3>
+                <p class="text-sm text-slate-600 mt-1.5 leading-relaxed">
+                  <strong>7/16 (週四)</strong> 為花火節施放日！建議於 19:30 前往觀音亭彩虹橋附近卡位，或提早登船參加「海上花火船」，避開擁擠人潮，近距離體驗高空煙火的震撼。
+                </p>
+              </div>
+            </div>
+
+            <!-- Item 6 (Accommodation) -->
+            <div class="relative flex items-start pl-8 sm:pl-12 group">
+              <div class="absolute left-2.5 sm:left-4 w-3.5 h-3.5 bg-indigo-600 border-4 border-white rounded-full ring-4 ring-indigo-100 z-10 transition group-hover:scale-125"></div>
+              <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100 flex-grow hover:shadow-md transition">
+                <div class="flex justify-between items-center flex-wrap gap-2">
+                  <span class="bg-indigo-50 text-indigo-700 text-xs px-2 py-0.5 rounded font-bold">住宿</span>
+                  <span class="text-xs text-slate-400 font-medium">馬公老街</span>
+                </div>
+                <h3 class="font-bold text-slate-800 text-base mt-2 flex items-center gap-2">
+                  <span>🏡</span> 入住：馬公老街 益美民宿
+                </h3>
+                <p class="text-sm text-slate-500 mt-1.5 leading-relaxed">
+                  花火節結束後，前往位於馬公老街內的 <strong>益美民宿</strong> 休息。地理位置極佳，方便隔天早上的老街與觀音亭行程！<br>
+                  <a href="https://maps.app.goo.gl/ttfWo1oKG7UsM41s6" target="_blank" class="inline-flex items-center gap-1 mt-2 text-cyan-600 hover:text-cyan-800 font-medium">
+                    <span class="text-base">📍</span> Google Maps 導航
+                  </a>
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- DAY 3 CONTENT -->
+        <div id="day-3-content" class="day-content hidden space-y-6">
+          <div class="bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-2xl p-6 shadow-sm">
+            <h2 class="text-xl font-bold flex items-center gap-2">
+              <span>Day 3</span> 人文古蹟與西嶼「大義、夢幻」海岸
+            </h2>
+            <p class="text-sm text-amber-50/90 mt-1">本日重點：早上馬公市區漫遊，下午前進西嶼拜訪神級大義立體海龜與退潮限定沙灘。</p>
+          </div>
+
+          <div class="space-y-4 relative before:absolute before:inset-0 before:left-4 before:xs:left-6 before:w-0.5 before:bg-slate-200">
+            
+            <!-- Item 1 -->
+            <div class="relative flex items-start pl-8 sm:pl-12 group">
+              <div class="absolute left-2.5 sm:left-4 w-3.5 h-3.5 bg-amber-600 border-4 border-white rounded-full ring-4 ring-amber-100 z-10 transition group-hover:scale-125"></div>
+              <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100 flex-grow hover:shadow-md transition">
+                <div class="flex justify-between items-center flex-wrap gap-2">
+                  <span class="bg-cyan-50 text-cyan-700 text-xs px-2 py-0.5 rounded font-bold">上午</span>
+                  <span class="text-xs text-slate-400 font-medium">老街人文</span>
+                </div>
+                <h3 class="font-bold text-slate-800 text-base mt-2">澎湖老街觀音亭 ➜ 張雨生的家</h3>
+                <p class="text-sm text-slate-500 mt-1.5 leading-relaxed">
+                  <strong>澎湖老街觀音亭：</strong> 拜訪擁有百年歷史、典雅幽靜的觀音亭，眺望昨晚施放花火的彩虹橋平靜晨景。<br>
+                  <strong>篤行十村（張雨生的家 & 潘安邦故事館）：</strong> 漫步在全台最老眷村，回味經典歌曲與眷村紅磚牆的懷舊氛圍。
+                </p>
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="relative flex items-start pl-8 sm:pl-12 group">
+              <div class="absolute left-2.5 sm:left-4 w-3.5 h-3.5 bg-amber-600 border-4 border-white rounded-full ring-4 ring-amber-100 z-10 transition group-hover:scale-125"></div>
+              <div class="bg-white p-5 rounded-xl shadow-sm border-2 border-amber-100 flex-grow hover:shadow-md transition">
+                <div class="flex justify-between items-center flex-wrap gap-2">
+                  <span class="bg-amber-50 text-amber-700 text-xs px-2 py-0.5 rounded font-bold">中午</span>
+                  <span class="text-xs text-slate-400 font-medium">老饕大推</span>
+                </div>
+                <h3 class="font-bold text-slate-800 text-base mt-2">特色餐酒館 vs 義美餅舖附近道地小吃</h3>
+                <p class="text-sm text-slate-500 mt-1.5 leading-relaxed">
+                  <strong>特色餐酒館：</strong> 推薦具有澎湖在地創意海鮮料理的精緻餐酒館，菜色極具澎湖風情。<br>
+                  <strong>義美附近小吃：</strong> 澎湖百年名產 <strong>「義美餅舖」</strong> 附近，隱藏著當地人超愛的道地老店（如：<strong>阿華排骨麵</strong> 或 <strong>中山路刀削麵</strong>、發仔麵），料好實在、湯頭清甜，最懂在地人的胃。
+                </p>
+              </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="relative flex items-start pl-8 sm:pl-12 group">
+              <div class="absolute left-2.5 sm:left-4 w-3.5 h-3.5 bg-amber-600 border-4 border-white rounded-full ring-4 ring-amber-100 z-10 transition group-hover:scale-125"></div>
+              <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100 flex-grow hover:shadow-md transition">
+                <div class="flex justify-between items-center flex-wrap gap-2">
+                  <span class="bg-cyan-50 text-cyan-700 text-xs px-2 py-0.5 rounded font-bold">下午</span>
+                  <span class="text-xs text-slate-400 font-medium">愛與秘境</span>
+                </div>
+                <h3 class="font-bold text-slate-800 text-base mt-2">馬公國小特教資源中心 ➜ 西嶼大義宮、夢幻海灘</h3>
+                <p class="text-sm text-slate-500 mt-1.5 leading-relaxed">
+                  <strong>馬公國小特教資源中心：</strong> 充滿愛與關懷的教育資源基地。<br>
+                  <strong>竹灣大義宮（立體大海龜造景）：</strong> 堤防上栩栩如生的 3D 立體海龜造景隨你拍，地下室更有炫彩亮麗的珊瑚洞（點擊「潮汐」看詳細介紹網址）。<br>
+                  <strong>西嶼夢幻海灘（網垵沙灘）：</strong> 澎湖退潮限定的神級沙灘！細緻的金黃沙地與漸層寶藍海域，在乾潮前後造訪最為壯麗。
+                </p>
+              </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="relative flex items-start pl-8 sm:pl-12 group">
+              <div class="absolute left-2.5 sm:left-4 w-3.5 h-3.5 bg-amber-600 border-4 border-white rounded-full ring-4 ring-amber-100 z-10 transition group-hover:scale-125"></div>
+              <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100 flex-grow hover:shadow-md transition">
+                <div class="flex justify-between items-center flex-wrap gap-2">
+                  <span class="bg-indigo-50 text-indigo-700 text-xs px-2 py-0.5 rounded font-bold">住宿</span>
+                  <span class="text-xs text-slate-400 font-medium">放鬆夜晚</span>
+                </div>
+                <h3 class="font-bold text-slate-800 text-base mt-2 flex items-center gap-2">
+                  <span>🏡</span> 續住：馬公老街 益美民宿
+                </h3>
+                <p class="text-sm text-slate-500 mt-1.5 leading-relaxed">
+                  晚餐可於市區自由探尋海鮮粥、玉冠嫩仙草、阿豹香腸攤，或挑選一間氣氛極佳的居酒屋，隨後悠閒散步返回 <strong>益美民宿</strong> 休息，享受老街的寧靜夜晚。<br>
+                  <a href="https://maps.app.goo.gl/ttfWo1oKG7UsM41s6" target="_blank" class="inline-flex items-center gap-1 mt-2 text-cyan-600 hover:text-cyan-800 font-medium">
+                    <span class="text-base">📍</span> Google Maps 導航
+                  </a>
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- DAY 4 CONTENT -->
+        <div id="day-4-content" class="day-content hidden space-y-6">
+          <div class="bg-gradient-to-r from-purple-500 to-indigo-500 text-white rounded-2xl p-6 shadow-sm">
+            <h2 class="text-xl font-bold flex items-center gap-2">
+              <span>Day 4</span> 摩西分海 ➜ 東海藍洞巡航與鳥嶼登島
+            </h2>
+            <p class="text-sm text-indigo-50/90 mt-1">本日終章：早起觀看分海奇景，午後東海一日遊搭船探秘藍洞、悠遊鳥嶼，滿載歸國！</p>
+          </div>
+
+          <div class="space-y-4 relative before:absolute before:inset-0 before:left-4 before:xs:left-6 before:w-0.5 before:bg-slate-200">
+            
+            <!-- Item 1 -->
+            <div class="relative flex items-start pl-8 sm:pl-12 group">
+              <div class="absolute left-2.5 sm:left-4 w-3.5 h-3.5 bg-purple-600 border-4 border-white rounded-full ring-4 ring-purple-100 z-10 transition group-hover:scale-125"></div>
+              <div class="bg-white p-5 rounded-xl shadow-sm border-2 border-cyan-100 flex-grow hover:shadow-md transition">
+                <div class="flex justify-between items-center flex-wrap gap-2">
+                  <span class="bg-cyan-50 text-cyan-700 text-xs px-2 py-0.5 rounded font-bold">上午 (早鳥)</span>
+                  <span class="text-xs text-slate-400 font-medium">大自然奇蹟</span>
+                </div>
+                <h3 class="font-bold text-slate-800 text-base mt-2">奎壁山地質公園「摩西分海」</h3>
+                <p class="text-sm text-slate-500 mt-1.5 leading-relaxed">
+                  <strong>7/18 (週六) 早起：</strong> 迎著晨光前往湖西鄉奎壁山。在特定的退潮時間，親眼見證海水分離、露出一條礫石步道通往赤嶼的經典震撼奇景！
+                </p>
+              </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="relative flex items-start pl-8 sm:pl-12 group">
+              <div class="absolute left-2.5 sm:left-4 w-3.5 h-3.5 bg-purple-600 border-4 border-white rounded-full ring-4 ring-purple-100 z-10 transition group-hover:scale-125"></div>
+              <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100 flex-grow hover:shadow-md transition">
+                <div class="flex justify-between items-center flex-wrap gap-2">
+                  <span class="bg-amber-50 text-amber-700 text-xs px-2 py-0.5 rounded font-bold">中午</span>
+                  <span class="text-xs text-slate-400 font-medium">快速補給</span>
+                </div>
+                <h3 class="font-bold text-slate-800 text-base mt-2">吃鮮美海鮮海產粥，或攜帶輕食登島</h3>
+                <p class="text-sm text-slate-500 mt-1.5 leading-relaxed">
+                  在前往岐頭碼頭登船前，可在市區來碗熱騰騰、鋪滿小管與鮮蚵的 <strong>海鮮海產粥</strong>，或者攜帶黑糖糕、三哥雞排等澎湖必吃輕食，在跳島航行時補充體力。
+                </p>
+              </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="relative flex items-start pl-8 sm:pl-12 group">
+              <div class="absolute left-2.5 sm:left-4 w-3.5 h-3.5 bg-purple-600 border-4 border-white rounded-full ring-4 ring-purple-100 z-10 transition group-hover:scale-125"></div>
+              <div class="bg-white p-5 rounded-xl shadow-md border border-purple-100 flex-grow hover:shadow-lg transition">
+                <div class="flex justify-between items-center flex-wrap gap-2">
+                  <span class="bg-purple-50 text-purple-700 text-xs px-2 py-0.5 rounded font-bold">下午【東海一日遊】</span>
+                  <span class="text-xs text-purple-500 font-bold">島嶼探險</span>
+                </div>
+                <h3 class="font-bold text-slate-800 text-base mt-2">岐頭碼頭搭船 ➡️ 巡航藍洞、玄武岩 ➡️ 登島鳥嶼/員貝嶼</h3>
+                <p class="text-sm text-slate-500 mt-1.5 leading-relaxed">
+                  自 <strong>岐頭碼頭</strong> 登船出發東海奇航：<br>
+                  <strong>1. 海上巡航：</strong> 航經壯觀的百褶裙玄武岩，親眼拜訪陽光透入海蝕洞折射出的神祕「藍洞」藍光奇景。<br>
+                  <strong>2. 島嶼悠悠漫遊：</strong> 登陸充滿小島風情的 <strong>鳥嶼</strong> 或 <strong>員貝嶼</strong>，漫步於純樸的漁村小路，享受被大海包圍的純淨離島慢活。
+                </p>
+              </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="relative flex items-start pl-8 sm:pl-12 group">
+              <div class="absolute left-2.5 sm:left-4 w-3.5 h-3.5 bg-indigo-600 border-4 border-white rounded-full ring-4 ring-indigo-100 z-10 transition group-hover:scale-125"></div>
+              <div class="bg-white p-5 rounded-xl shadow-sm border border-slate-100 flex-grow hover:shadow-md transition">
+                <div class="flex justify-between items-center flex-wrap gap-2">
+                  <span class="bg-indigo-50 text-indigo-700 text-xs px-2 py-0.5 rounded font-bold">傍晚</span>
+                  <span class="text-xs text-slate-400 font-medium">平安返家</span>
+                </div>
+                <h3 class="font-bold text-slate-800 text-base mt-2 flex items-center gap-2">
+                  <span>📍</span> 結束東海行程、前往機場/港口回家
+                </h3>
+                <p class="text-sm text-slate-500 mt-1.5 leading-relaxed">
+                  約 17:00 前返回岐頭碼頭。收拾好伴手禮（如黑糖糕、鹹餅等名產），整理行李並至車行歸還汽機車，搭車前往機場或馬公港，帶著極度充實、難忘的澎湖四日海風回憶平安返家。
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 3. TIDE TRACKER TAB -->
+      <div id="tab-tide" class="tab-content hidden">
+        <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100">
+          <h2 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+            <span>🌊</span> 摩西分海與夢幻海灘・潮汐觀測助手
+          </h2>
+          <p class="text-sm text-slate-500 mt-2">
+            澎湖的<strong>「奎壁山摩西分海」</strong>與<strong>「西嶼夢幻海灘」</strong>極度依賴潮汐！
+            摩西分海要在退潮時才會開路，而夢幻海灘（網垵沙灘）在滿潮時會被海水完全淹沒，只有退潮（乾潮）前後才是金黃細砂露出的黃金探訪時間。請善用以下觀測工具：
+          </p>
+
+          <!-- Interactive Calculator Mock -->
+          <div class="mt-6 bg-cyan-50 border border-cyan-100 rounded-2xl p-5">
+            <h3 class="font-bold text-cyan-800 text-sm">🗓️ 選擇您預計前往的景點與日期：</h3>
+            <div class="grid grid-cols-2 gap-3 mt-3">
+              <button onclick="calculateTide(1)" id="tide-day-3" class="tide-btn py-3 px-4 bg-cyan-600 text-white rounded-xl font-bold text-xs sm:text-sm shadow transition">
+                Day 3 (7/17) 夢幻海灘
+              </button>
+              <button onclick="calculateTide(2)" id="tide-day-4" class="tide-btn py-3 px-4 bg-white text-cyan-700 border border-cyan-200 hover:bg-cyan-100 rounded-xl font-semibold text-xs sm:text-sm transition">
+                Day 4 (7/18) 摩西分海
+              </button>
+            </div>
+
+            <!-- Tide Display Card -->
+            <div id="tide-result" class="bg-white rounded-xl p-5 mt-4 border border-cyan-100 space-y-4">
+              <div class="flex items-center justify-between border-b border-slate-100 pb-3">
+                <span class="text-xs bg-cyan-100 text-cyan-800 font-bold px-2 py-0.5 rounded" id="tide-badge">最佳推薦</span>
+                <span class="text-xs text-slate-400">模擬 2026 年澎湖夏季潮汐預測</span>
+              </div>
+              
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                  <h4 class="text-sm font-bold text-slate-700 flex items-center gap-1.5">
+                    <span class="text-cyan-500" id="tide-spot-title-1">🏝️ 西嶼夢幻海灘 (Day 3 推薦)</span>
+                  </h4>
+                  <div class="mt-2 text-sm text-slate-600">
+                    預估乾潮時間：<span class="font-bold text-cyan-700" id="moses-tide-time">15:45</span><br>
+                    建議最佳探訪區間：<span class="font-bold text-emerald-600" id="moses-safe-time">13:45 - 17:45</span>
+                  </div>
+                </div>
+                <div>
+                  <h4 class="text-sm font-bold text-slate-700 flex items-center gap-1.5">
+                    <span class="text-cyan-500" id="tide-spot-title-2">💡 實用旅遊網誌參考</span>
+                  </h4>
+                  <div class="mt-2 text-xs text-slate-500 leading-relaxed">
+                    <p class="mb-1"><strong>大義宮立體海龜與夢幻海灘：</strong></p>
+                    <a href="https://mimigo.tw/penghu-dayi/" target="_blank" class="text-blue-600 underline font-semibold hover:text-blue-800">
+                      Mimi韓：大義宮珊瑚洞、立體大海龜造景網美景點 ➔
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-6 border-t border-slate-100 pt-6">
+            <h3 class="font-bold text-slate-800 text-sm flex items-center gap-1.5">
+              <span>⚠️</span> 潮汐安全守則
+            </h3>
+            <ul class="text-sm text-slate-600 space-y-2 mt-3 list-disc pl-5">
+              <li>出發當日，請配合現場安全人員廣播與紅旗指示，若開始漲潮，請盡速離開步道與夢幻海灘。</li>
+              <li>西嶼夢幻海灘沙質細軟，退潮時水面清澈，但海域深度變化多，不建議獨自游往深水區。</li>
+              <li>摩西分海礫石步道長，建議穿著厚底防滑涼鞋，避免赤腳被尖銳石子或礁岩割傷。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. PACKING CHECKLIST TAB -->
+      <div id="tab-checklist" class="tab-content hidden">
+        <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100">
+          <div class="flex justify-between items-center border-b border-slate-100 pb-4">
+            <div>
+              <h2 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                <span>🎒</span> 澎湖行前行李檢查清單
+              </h2>
+              <p class="text-sm text-slate-500 mt-1">一邊整理行李，一邊點選勾除，確保萬無一失！</p>
+            </div>
+            <button onclick="resetChecklist()" class="text-xs text-cyan-600 hover:text-cyan-800 border border-cyan-200 px-3 py-1 rounded-lg transition font-medium">
+              重設清單
+            </button>
+          </div>
+
+          <!-- Category Lists -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            
+            <!-- Category 1 -->
+            <div class="space-y-3">
+              <h3 class="font-bold text-slate-700 border-l-4 border-cyan-600 pl-2 text-sm">📇 必要證件與金流</h3>
+              <div class="space-y-2">
+                <label class="flex items-center space-x-3 p-3 bg-slate-50 rounded-xl cursor-pointer hover:bg-slate-100 transition">
+                  <input type="checkbox" class="checklist-item rounded border-slate-300 text-cyan-600 focus:ring-cyan-500 h-5 w-5" onchange="updateProgress()">
+                  <span class="text-sm text-slate-600">身分證正本 (機票與乘船登記必備)</span>
+                </label>
+                <label class="flex items-center space-x-3 p-3 bg-slate-50 rounded-xl cursor-pointer hover:bg-slate-100 transition">
+                  <input type="checkbox" class="checklist-item rounded border-slate-300 text-cyan-600 focus:ring-cyan-500 h-5 w-5" onchange="updateProgress()">
+                  <span class="text-sm text-slate-600">汽車/機車駕照 (澎湖當地租車必看)</span>
+                </label>
+                <label class="flex items-center space-x-3 p-3 bg-slate-50 rounded-xl cursor-pointer hover:bg-slate-100 transition">
+                  <input type="checkbox" class="checklist-item rounded border-slate-300 text-cyan-600 focus:ring-cyan-500 h-5 w-5" onchange="updateProgress()">
+                  <span class="text-sm text-slate-600">健保卡 (以備不時之需)</span>
+                </label>
+                <label class="flex items-center space-x-3 p-3 bg-slate-50 rounded-xl cursor-pointer hover:bg-slate-100 transition">
+                  <input type="checkbox" class="checklist-item rounded border-slate-300 text-cyan-600 focus:ring-cyan-500 h-5 w-5" onchange="updateProgress()">
+                  <span class="text-sm text-slate-600">現金 (有些老街傳統小店、伴手禮不能刷卡)</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Category 2 -->
+            <div class="space-y-3">
+              <h3 class="font-bold text-slate-700 border-l-4 border-amber-500 pl-2 text-sm">🕶️ 防曬與沙灘服飾</h3>
+              <div class="space-y-2">
+                <label class="flex items-center space-x-3 p-3 bg-slate-50 rounded-xl cursor-pointer hover:bg-slate-100 transition">
+                  <input type="checkbox" class="checklist-item rounded border-slate-300 text-cyan-600 focus:ring-cyan-500 h-5 w-5" onchange="updateProgress()">
+                  <span class="text-sm text-slate-600">海洋友善防曬乳 (保護澎湖珊瑚礁)</span>
+                </label>
+                <label class="flex items-center space-x-3 p-3 bg-slate-50 rounded-xl cursor-pointer hover:bg-slate-100 transition">
+                  <input type="checkbox" class="checklist-item rounded border-slate-300 text-cyan-600 focus:ring-cyan-500 h-5 w-5" onchange="updateProgress()">
+                  <span class="text-sm text-slate-600">墨鏡與寬邊遮陽帽 (防強烈紫外線)</span>
+                </label>
+                <label class="flex items-center space-x-3 p-3 bg-slate-50 rounded-xl cursor-pointer hover:bg-slate-100 transition">
+                  <input type="checkbox" class="checklist-item rounded border-slate-300 text-cyan-600 focus:ring-cyan-500 h-5 w-5" onchange="updateProgress()">
+                  <span class="text-sm text-slate-600">泳衣/防曬水母衣/輕便涼鞋 (東海出海必用)</span>
+                </label>
+                <label class="flex items-center space-x-3 p-3 bg-slate-50 rounded-xl cursor-pointer hover:bg-slate-100 transition">
+                  <input type="checkbox" class="checklist-item rounded border-slate-300 text-cyan-600 focus:ring-cyan-500 h-5 w-5" onchange="updateProgress()">
+                  <span class="text-sm text-slate-600">薄長袖防曬外套 (騎車時防曬黑)</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Category 3 -->
+            <div class="space-y-3">
+              <h3 class="font-bold text-slate-700 border-l-4 border-indigo-600 pl-2 text-sm">🔌 3C 電子設備</h3>
+              <div class="space-y-2">
+                <label class="flex items-center space-x-3 p-3 bg-slate-50 rounded-xl cursor-pointer hover:bg-slate-100 transition">
+                  <input type="checkbox" class="checklist-item rounded border-slate-300 text-cyan-600 focus:ring-cyan-500 h-5 w-5" onchange="updateProgress()">
+                  <span class="text-sm text-slate-600">行動電源與手機充電器</span>
+                </label>
+                <label class="flex items-center space-x-3 p-3 bg-slate-50 rounded-xl cursor-pointer hover:bg-slate-100 transition">
+                  <input type="checkbox" class="checklist-item rounded border-slate-300 text-cyan-600 focus:ring-cyan-500 h-5 w-5" onchange="updateProgress()">
+                  <span class="text-sm text-slate-600">手機防水袋 (夢幻沙灘、出海必備)</span>
+                </label>
+                <label class="flex items-center space-x-3 p-3 bg-slate-50 rounded-xl cursor-pointer hover:bg-slate-100 transition">
+                  <input type="checkbox" class="checklist-item rounded border-slate-300 text-cyan-600 focus:ring-cyan-500 h-5 w-5" onchange="updateProgress()">
+                  <span class="text-sm text-slate-600">相機或廣角鏡頭 (拍大菓葉、大義宮必備)</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Category 4 -->
+            <div class="space-y-3">
+              <h3 class="font-bold text-slate-700 border-l-4 border-rose-500 pl-2 text-sm">💊 個人醫藥護理</h3>
+              <div class="space-y-2">
+                <label class="flex items-center space-x-3 p-3 bg-slate-50 rounded-xl cursor-pointer hover:bg-slate-100 transition">
+                  <input type="checkbox" class="checklist-item rounded border-slate-300 text-cyan-600 focus:ring-cyan-500 h-5 w-5" onchange="updateProgress()">
+                  <span class="text-sm text-slate-600">防暈船藥 (東海一日遊乘船必備)</span>
+                </label>
+                <label class="flex items-center space-x-3 p-3 bg-slate-50 rounded-xl cursor-pointer hover:bg-slate-100 transition">
+                  <input type="checkbox" class="checklist-item rounded border-slate-300 text-cyan-600 focus:ring-cyan-500 h-5 w-5" onchange="updateProgress()">
+                  <span class="text-sm text-slate-600">防蚊液 (古厝、郊區多蚊子)</span>
+                </label>
+                <label class="flex items-center space-x-3 p-3 bg-slate-50 rounded-xl cursor-pointer hover:bg-slate-100 transition">
+                  <input type="checkbox" class="checklist-item rounded border-slate-300 text-cyan-600 focus:ring-cyan-500 h-5 w-5" onchange="updateProgress()">
+                  <span class="text-sm text-slate-600">蘆薈曬後舒緩凝膠</span>
+                </label>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Progress Bar -->
+          <div class="mt-8 bg-slate-50 border border-slate-100 rounded-2xl p-5">
+            <div class="flex justify-between items-center text-sm font-semibold text-slate-700 mb-2">
+              <span>🎒 行李打包完成度</span>
+              <span id="checklist-percent">0%</span>
+            </div>
+            <div class="w-full bg-slate-200 rounded-full h-3.5">
+              <div id="checklist-progress-bar" class="bg-gradient-to-r from-cyan-500 to-blue-600 h-3.5 rounded-full transition-all duration-300" style="width: 0%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. BUDGET CALCULATOR TAB -->
+      <div id="tab-budget" class="tab-content hidden">
+        <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100">
+          <h2 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+            <span>💰</span> 桃園情支・澎湖預算與記帳本
+          </h2>
+          <p class="text-sm text-slate-500 mt-1">在欄位中調整您的預估花費，會自動計算預估總支出喔！</p>
+
+          <!-- Budget Calculator -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            
+            <div class="space-y-4">
+              <h3 class="font-bold text-slate-700 border-l-4 border-cyan-600 pl-2 text-sm mb-2">🏷️ 項目與預估 (每人)</h3>
+              
+              <div class="space-y-3">
+                <div class="flex items-center justify-between">
+                  <label class="text-sm text-slate-600 font-medium">✈️ 來回機票 / 船票:</label>
+                  <div class="relative rounded-lg shadow-sm w-36">
+                    <input type="number" id="cost-transport" value="4500" class="budget-input w-full p-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 text-right pr-6 text-sm font-semibold text-slate-700" oninput="calculateTotalBudget()">
+                    <span class="absolute right-2 top-2 text-slate-400 text-xs">$</span>
+                  </div>
+                </div>
+
+                <div class="flex items-center justify-between">
+                  <label class="text-sm text-slate-600 font-medium">🏨 住宿 (3晚折算每人):</label>
+                  <div class="relative rounded-lg shadow-sm w-36">
+                    <input type="number" id="cost-hotel" value="4200" class="budget-input w-full p-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 text-right pr-6 text-sm font-semibold text-slate-700" oninput="calculateTotalBudget()">
+                    <span class="absolute right-2 top-2 text-slate-400 text-xs">$</span>
+                  </div>
+                </div>
+
+                <div class="flex items-center justify-between">
+                  <label class="text-sm text-slate-600 font-medium">🛵 汽機車 租賃及油資:</label>
+                  <div class="relative rounded-lg shadow-sm w-36">
+                    <input type="number" id="cost-car" value="1800" class="budget-input w-full p-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 text-right pr-6 text-sm font-semibold text-slate-700" oninput="calculateTotalBudget()">
+                    <span class="absolute right-2 top-2 text-slate-400 text-xs">$</span>
+                  </div>
+                </div>
+
+                <div class="flex items-center justify-between">
+                  <label class="text-sm text-slate-600 font-medium">⛵ 東海一日遊 & 花火船:</label>
+                  <div class="relative rounded-lg shadow-sm w-36">
+                    <input type="number" id="cost-activity" value="2500" class="budget-input w-full p-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 text-right pr-6 text-sm font-semibold text-slate-700" oninput="calculateTotalBudget()">
+                    <span class="absolute right-2 top-2 text-slate-400 text-xs">$</span>
+                  </div>
+                </div>
+
+                <div class="flex items-center justify-between">
+                  <label class="text-sm text-slate-600 font-medium">😋 餐酒館、美東芳、海鮮粥:</label>
+                  <div class="relative rounded-lg shadow-sm w-36">
+                    <input type="number" id="cost-food" value="3500" class="budget-input w-full p-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 text-right pr-6 text-sm font-semibold text-slate-700" oninput="calculateTotalBudget()">
+                    <span class="absolute right-2 top-2 text-slate-400 text-xs">$</span>
+                  </div>
+                </div>
+
+                <div class="flex items-center justify-between">
+                  <label class="text-sm text-slate-600 font-medium">🎁 義美鹹餅、黑糖糕伴手禮:</label>
+                  <div class="relative rounded-lg shadow-sm w-36">
+                    <input type="number" id="cost-souvenir" value="1500" class="budget-input w-full p-2 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-cyan-500 text-right pr-6 text-sm font-semibold text-slate-700" oninput="calculateTotalBudget()">
+                    <span class="absolute right-2 top-2 text-slate-400 text-xs">$</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Visualization Total Display -->
+            <div class="bg-gradient-to-br from-cyan-900 to-blue-900 rounded-2xl p-6 text-white flex flex-col justify-between">
+              <div>
+                <h4 class="text-xs text-cyan-200 font-semibold tracking-wider uppercase">Estimated Total Cost</h4>
+                <p class="text-sm text-cyan-100 mt-1">每人預估總金額</p>
+                <div class="text-4xl font-black mt-3 text-yellow-300">
+                  $ <span id="budget-total">18,000</span> <span class="text-xs text-white">TWD</span>
+                </div>
+              </div>
+              
+              <div class="border-t border-cyan-800 pt-4 mt-6">
+                <p class="text-xs text-cyan-200">💡 預算小建議：</p>
+                <p class="text-xs text-cyan-100 mt-1 leading-relaxed">
+                  1. 美東芳牛肉麵與海鮮粥皆可與朋友共享大碗與滷菜分擔費用。<br>
+                  2. 東海一日遊多包含巡航登島，性價比極高，可直接套裝預訂。
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. TRAVEL NOTES TAB -->
+      <div id="tab-notes" class="tab-content hidden">
+        <div class="bg-white p-6 rounded-3xl shadow-sm border border-slate-100">
+          <h2 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+            <span>✍️</span> 澎湖旅行隨手筆記
+          </h2>
+          <p class="text-sm text-slate-500 mt-1">記錄要預訂的旅宿、店家電話、美食清單，或行程微調想法！</p>
+
+          <div class="mt-6 space-y-4">
+            <textarea id="travel-notes" rows="12" class="w-full p-4 border border-slate-200 rounded-2xl focus:outline-none focus:ring-2 focus:ring-cyan-500 font-medium text-slate-700 text-sm leading-relaxed" placeholder="在此輸入您的筆記，例如：
+1. 7/16 花火船 預約代碼：PH888999
+2. 美東芳牛肉麵地址：澎湖縣白沙鄉港子村67之2號
+3. 義美鹹餅必買：義美餅舖 (馬公市中山路4巷7號)
+4. 夢幻海灘乾潮時間要注意對齊！"></textarea>
+            
+            <div class="flex justify-between items-center">
+              <span class="text-xs text-slate-400">📝 筆記保存在當前瀏覽器，關閉或刷新前可自由編輯。</span>
+              <button onclick="clearNotes()" class="text-xs text-rose-600 hover:text-rose-800 transition font-medium">
+                清空筆記
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- BOTTOM NAVIGATION BAR (Mobile only) -->
+  <footer class="lg:hidden fixed bottom-0 left-0 right-0 bg-white border-t border-slate-200 shadow-lg py-2 px-2 z-50 flex justify-around">
+    <button onclick="switchTab('tab-cover')" id="m-btn-tab-cover" class="flex flex-col items-center space-y-1 text-cyan-600 px-2 py-1">
+      <span class="text-lg">📖</span>
+      <span class="text-[10px] font-medium">封面</span>
+    </button>
+    <button onclick="switchTab('tab-itinerary')" id="m-btn-tab-itinerary" class="flex flex-col items-center space-y-1 text-slate-400 px-2 py-1">
+      <span class="text-lg">🗺️</span>
+      <span class="text-[10px] font-medium">行程</span>
+    </button>
+    <button onclick="switchTab('tab-tide')" id="m-btn-tab-tide" class="flex flex-col items-center space-y-1 text-slate-400 px-2 py-1">
+      <span class="text-lg">🌊</span>
+      <span class="text-[10px] font-medium">潮汐</span>
+    </button>
+    <button onclick="switchTab('tab-checklist')" id="m-btn-tab-checklist" class="flex flex-col items-center space-y-1 text-slate-400 px-2 py-1">
+      <span class="text-lg">🎒</span>
+      <span class="text-[10px] font-medium">清單</span>
+    </button>
+    <button onclick="switchTab('tab-budget')" id="m-btn-tab-budget" class="flex flex-col items-center space-y-1 text-slate-400 px-2 py-1">
+      <span class="text-lg">💰</span>
+      <span class="text-[10px] font-medium">預算</span>
+    </button>
+    <button onclick="switchTab('tab-notes')" id="m-btn-tab-notes" class="flex flex-col items-center space-y-1 text-slate-400 px-2 py-1">
+      <span class="text-lg">✍️</span>
+      <span class="text-[10px] font-medium">筆記</span>
+    </button>
+  </footer>
+
+  <script>
+    // Tab Switching Logic
+    function switchTab(tabId) {
+      // Hide all tabs
+      document.querySelectorAll('.tab-content').forEach(el => {
+        el.classList.add('hidden');
+        el.classList.remove('block');
+      });
+      
+      // Show target tab
+      const targetTab = document.getElementById(tabId);
+      targetTab.classList.remove('hidden');
+      targetTab.classList.add('block');
+
+      // Update Desktop Nav Button active styling
+      document.querySelectorAll('.nav-btn').forEach(btn => {
+        btn.classList.remove('bg-cyan-50', 'text-cyan-700', 'font-medium');
+        btn.classList.add('text-slate-600', 'hover:bg-slate-50', 'hover:text-slate-800');
+      });
+      const activeBtn = document.getElementById('btn-' + tabId);
+      if (activeBtn) {
+        activeBtn.classList.remove('text-slate-600', 'hover:bg-slate-50', 'hover:text-slate-800');
+        activeBtn.classList.add('bg-cyan-50', 'text-cyan-700', 'font-medium');
+      }
+
+      // Update Mobile Nav Button active styling
+      const mobileNavButtons = [
+        'm-btn-tab-cover', 'm-btn-tab-itinerary', 'm-btn-tab-tide', 
+        'm-btn-tab-checklist', 'm-btn-tab-budget', 'm-btn-tab-notes'
+      ];
+      mobileNavButtons.forEach(btnId => {
+        const btn = document.getElementById(btnId);
+        if (btn) {
+          btn.classList.remove('text-cyan-600');
+          btn.classList.add('text-slate-400');
+        }
+      });
+      const activeMobileBtn = document.getElementById('m-' + tabId);
+      if (activeMobileBtn) {
+        activeMobileBtn.classList.remove('text-slate-400');
+        activeMobileBtn.classList.add('text-cyan-600');
+      }
+
+      // Smooth scroll back to top of container on mobile tab switch
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // Itinerary Day Switching Logic
+    function switchDay(dayNum) {
+      // Hide all day content
+      document.querySelectorAll('.day-content').forEach(el => {
+        el.classList.add('hidden');
+        el.classList.remove('block');
+      });
+
+      // Show current day
+      document.getElementById(`day-${dayNum}-content`).classList.remove('hidden');
+      document.getElementById(`day-${dayNum}-content`).classList.add('block');
+
+      // Update day tab button styling
+      document.querySelectorAll('.day-tab-btn').forEach(btn => {
+        btn.classList.remove('border-cyan-600', 'text-cyan-600', 'font-bold');
+        btn.classList.add('border-transparent', 'text-slate-500', 'hover:text-slate-800', 'font-semibold');
+      });
+      const activeDayBtn = document.getElementById(`btn-day-${dayNum}`);
+      activeDayBtn.classList.remove('border-transparent', 'text-slate-500', 'hover:text-slate-800', 'font-semibold');
+      activeDayBtn.classList.add('border-cyan-600', 'text-cyan-600', 'font-bold');
+    }
+
+    // Countdown Timer Setup (Destination: July 15, 2026)
+    function updateCountdown() {
+      const targetDate = new Date('July 15, 2026 00:00:00').getTime();
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference > 0) {
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        document.getElementById('countdown-days').innerText = days;
+      } else {
+        document.getElementById('countdown-container').innerHTML = "✨ 祝澎湖旅途愉快！";
+      }
+    }
+
+    // Tide Calculator Mock logic for Day 3 and Day 4
+    function calculateTide(num) {
+      const btn3 = document.getElementById('tide-day-3');
+      const btn4 = document.getElementById('tide-day-4');
+
+      if (num === 1) {
+        btn3.className = "tide-btn py-3 px-4 bg-cyan-600 text-white rounded-xl font-bold text-xs sm:text-sm shadow transition";
+        btn4.className = "tide-btn py-3 px-4 bg-white text-cyan-700 border border-cyan-200 hover:bg-cyan-100 rounded-xl font-semibold text-xs sm:text-sm transition";
+        
+        document.getElementById('tide-badge').innerText = "夢幻海灘專用";
+        document.getElementById('tide-spot-title-1').innerText = "🏖️ 西嶼夢幻海灘 (Day 3 推薦)";
+        document.getElementById('moses-tide-time').innerText = "15:45";
+        document.getElementById('moses-safe-time').innerText = "13:45 - 17:45 (乾潮前後2小時)";
+      } else {
+        btn4.className = "tide-btn py-3 px-4 bg-cyan-600 text-white rounded-xl font-bold text-xs sm:text-sm shadow transition";
+        btn3.className = "tide-btn py-3 px-4 bg-white text-cyan-700 border border-cyan-200 hover:bg-cyan-100 rounded-xl font-semibold text-xs sm:text-sm transition";
+        
+        document.getElementById('tide-badge').innerText = "奎壁山分海專用";
+        document.getElementById('tide-spot-title-1').innerText = "🚶‍♂️ 奎壁山摩西分海 (Day 4 推薦)";
+        document.getElementById('moses-tide-time').innerText = "07:30";
+        document.getElementById('moses-safe-time').innerText = "05:30 - 09:30 (分海安全開放時段)";
+      }
+    }
+
+    // Packing List Progress Logic
+    function updateProgress() {
+      const items = document.querySelectorAll('.checklist-item');
+      let checkedCount = 0;
+
+      items.forEach(item => {
+        const textSpan = item.nextElementSibling;
+        if (item.checked) {
+          checkedCount++;
+          textSpan.classList.add('line-through', 'text-slate-400');
+        } else {
+          textSpan.classList.remove('line-through', 'text-slate-400');
+        }
+      });
+
+      const percentage = items.length > 0 ? Math.round((checkedCount / items.length) * 100) : 0;
+      document.getElementById('checklist-percent').innerText = `${percentage}%`;
+      document.getElementById('checklist-progress-bar').style.width = `${percentage}%`;
+    }
+
+    function resetChecklist() {
+      document.querySelectorAll('.checklist-item').forEach(item => {
+        item.checked = false;
+      });
+      updateProgress();
+    }
+
+    // Budget Calculator Logic
+    function calculateTotalBudget() {
+      const transport = parseFloat(document.getElementById('cost-transport').value) || 0;
+      const hotel = parseFloat(document.getElementById('cost-hotel').value) || 0;
+      const car = parseFloat(document.getElementById('cost-car').value) || 0;
+      const activity = parseFloat(document.getElementById('cost-activity').value) || 0;
+      const food = parseFloat(document.getElementById('cost-food').value) || 0;
+      const souvenir = parseFloat(document.getElementById('cost-souvenir').value) || 0;
+
+      const total = transport + hotel + car + activity + food + souvenir;
+      document.getElementById('budget-total').innerText = total.toLocaleString();
+    }
+
+    // Notes Logic
+    function clearNotes() {
+      // Direct visual feedback instead of raw blocking confirm()
+      const noteArea = document.getElementById('travel-notes');
+      noteArea.value = '';
+    }
+
+    // Initialize Page
+    window.onload = function() {
+      updateCountdown();
+      // Update countdown every 24 hours
+      setInterval(updateCountdown, 86400000);
+      updateProgress();
+      calculateTotalBudget();
+    };
+  </script>
+</body>
+</html>
